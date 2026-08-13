@@ -1,0 +1,50 @@
+<h1>Lista de Pólizas</h1>
+
+<a href="/policies/new">
+    <button type="button">+ Nueva Póliza</button>
+</a>
+
+<br><br>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cuenta</th>
+            <th>Tipo de seguro</th>
+            <th>Compañía</th>
+            <th>Número de póliza</th>
+            <th>Prima</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each policies}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{accountId}}</td>
+                <td>{{insuranceType}}</td>
+                <td>{{company}}</td>
+                <td>{{policyNumber}}</td>
+                <td>{{premium}}</td>
+                <td>{{startDate}}</td>
+                <td>{{endDate}}</td>
+                <td>{{status}}</td>
+                <td>
+                     <a href="/policies/edit/{{id}}">
+                        <button type="button">Editar</button>
+                    </a>
+
+                    {{#if isActive}}
+                        <form action="/policies/delete/{{id}}" method="POST">
+                            <button type="submit" onclick="return confirm('¿Dar de baja esta póliza?')">Dar de baja</button>
+                        </form>
+                    {{/if}}
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

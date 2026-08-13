@@ -1,0 +1,64 @@
+<h2>Editar Cliente</h2>
+
+<form action="/accounts/edit/{{account.id}}" method="POST">
+
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input
+            class="form-control"
+            type="text"
+            name="firstName"
+            value="{{account.firstName}}"
+            required
+        >
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input
+            class="form-control"
+            type="text"
+            name="lastName"
+            value="{{account.lastName}}"
+            required
+        >
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">DNI</label>
+        <input
+            class="form-control"
+            type="text"
+            name="dni"
+            value="{{account.dni}}"
+            required
+        >
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Teléfono</label>
+        <input
+            class="form-control"
+            type="text"
+            name="phone"
+            value="{{account.phone}}"
+            required
+        >
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+            class="form-control"
+            type="email"
+            name="email"
+            value="{{account.email}}"
+            required
+        >
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+        Guardar cambios
+    </button>
+
+</form>

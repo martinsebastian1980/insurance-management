@@ -1,0 +1,42 @@
+    <h1>Lista de Clientes</h1>
+
+<a href="/accounts/new">
+    <button type="button">+ Nuevo Cliente</button>
+</a>
+
+<br><br>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>DNI</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each accounts}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{firstName}}</td>
+                <td>{{lastName}}</td>
+                <td>{{dni}}</td>
+                <td>{{phone}}</td>
+                <td>{{email}}</td>
+                <td>
+                    <a href="/accounts/{{id}}">
+                       <button type="button">Ver</button>
+                    </a>
+                    <a href="/accounts/edit/{{id}}">
+                        <button type="button">Editar</button>
+                    </a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

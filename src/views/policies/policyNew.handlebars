@@ -1,0 +1,100 @@
+<div class="container mt-5">
+
+    <h2>Nueva Póliza</h2>
+
+    <form action="/policies" method="POST">
+
+    <div class="mb-3">
+
+            <label class="form-label">Cliente</label>
+                {{#if selectedAccount}}
+                    <input type="text" class="form-control" 
+                        value="{{selectedAccount.firstName}} {{selectedAccount.lastName}}" readonly>
+                    <input type="hidden" name="accountId" value="{{selectedAccount.id}}">
+                {{else}}
+                    <select class="form-select" name="accountId" required>
+                        <option value="">Seleccione un cliente</option>
+                        {{#each accounts}}
+                        <option value="{{id}}">{{firstName}} {{lastName}}</option>
+                        {{/each}}
+                    </select>
+
+{{/if}}
+
+    </div>
+
+        <div class="mb-3">
+            <label class="form-label">Tipo de Seguro</label>
+
+            <input
+                class="form-control"
+                type="text"
+                name="insuranceType"
+                placeholder="Ej: Automotor"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Compañía</label>
+
+            <input
+                class="form-control"
+                type="text"
+                name="company"
+                placeholder="Ej: La Caja"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Número de Póliza</label>
+
+            <input
+                class="form-control"
+                type="text"
+                name="policyNumber"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Prima</label>
+
+            <input
+                class="form-control"
+                type="number"
+                name="premium"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fecha de Inicio</label>
+
+            <input
+                class="form-control"
+                type="date"
+                name="startDate"
+                required
+            >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fecha de Fin</label>
+
+            <input
+                class="form-control"
+                type="date"
+                name="endDate"
+                required
+            >
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+            Guardar Póliza
+        </button>
+
+    </form>
+
+</div>

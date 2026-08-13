@@ -1,0 +1,50 @@
+<h2>Detalle del Cliente</h2>
+
+<div>
+    <p><strong>ID:</strong> {{account.id}}</p>
+    <p><strong>Nombre:</strong> {{account.firstName}}</p>
+    <p><strong>Apellido:</strong> {{account.lastName}}</p>
+    <p><strong>DNI:</strong> {{account.dni}}</p>
+    <p><strong>Teléfono:</strong> {{account.phone}}</p>
+    <p><strong>Email:</strong> {{account.email}}</p>
+    <p><strong>Estado:</strong> {{account.status}}</p>
+</div>
+
+<h3>Pólizas del cliente</h3>
+
+{{#if policies}}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tipo de seguro</th>
+                <th>Compañía</th>
+                <th>Número de póliza</th>
+                <th>Prima</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each policies}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{insuranceType}}</td>
+                    <td>{{company}}</td>
+                    <td>{{policyNumber}}</td>
+                    <td>{{premium}}</td>
+                    <td>{{status}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>Este cliente no tiene pólizas.</p>
+{{/if}}
+
+<a href="/policies/new?accountId={{account.id}}">
+    <button type="button">+ Nueva póliza</button>
+</a>
+<a href="/accounts">
+    <button type="button">Volver a clientes</button>
+</a>

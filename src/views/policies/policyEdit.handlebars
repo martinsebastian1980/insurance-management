@@ -1,0 +1,89 @@
+<h2>Editar Póliza</h2>
+
+<form action="/policies/edit/{{policy.id}}" method="POST">
+
+<div class="mb-3">
+    <label class="form-label">Tipo de Seguro</label>
+
+    <input
+        class="form-control"
+        type="text"
+        name="insuranceType"
+        value="{{policy.insuranceType}}"
+        required
+    >
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Compañía</label>
+
+    <input
+        class="form-control"
+        type="text"
+        name="company"
+        value="{{policy.company}}"
+        required
+    >
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Número de Póliza</label>
+
+    <input
+        class="form-control"
+        type="text"
+        name="policyNumber"
+        value="{{policy.policyNumber}}"
+        required
+    >
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Prima</label>
+
+    <input
+        class="form-control"
+        type="number"
+        name="premium"
+        value="{{policy.premium}}"
+        required
+    >
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Fecha de Inicio</label>
+
+    <input
+        class="form-control"
+        type="date"
+        name="startDate"
+        value="{{policy.startDate}}"
+        required
+    >
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Fecha de Fin</label>
+
+    <input
+        class="form-control"
+        type="date"
+        name="endDate"
+        value="{{policy.endDate}}"
+        required
+    >
+</div>
+
+<div class="mb-3"> 
+    <label class="form-label">Estado</label> 
+        <select class="form-select" name="status" required> 
+            <option value="ACTIVE" {{#if isActive}}selected{{/if}}> Activa </option> 
+            <option value="INACTIVE" {{#if isInactive}}selected{{/if}}> Inactiva </option> 
+        </select> 
+</div>
+
+<button class="btn btn-primary" type="submit">
+    Guardar cambios
+</button>
+
+</form>
